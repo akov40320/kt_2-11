@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirect...</title>
+</head>
+<body>
+<script>
+  // GitHub Pages workaround: redirect any deep link back to index.html with a query param.
+  const p = location.pathname;
+  const base = p.split("/").slice(0, -1).join("/") + "/"; // folder
+  const route = p.replace(base, "/");
+  location.replace(base + "index.html?route=" + encodeURIComponent(route) + location.search + location.hash);
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ4 — Геолокация и Хранилища</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №4 — Геолокация и Хранилища</h1>
+
+    <div class="grid2">
+      <section class="panel">
+        <h2>1) Определение местоположения</h2>
+        <div class="row">
+          <button class="primary" id="geoBtn">Определить местоположение</button>
+          <span class="pill" id="geoStatus">нет данных</span>
+        </div>
+        <div class="kv" style="margin-top:10px">
+          <div><label>Широта</label><input id="lat" readonly placeholder="—" /></div>
+          <div><label>Долгота</label><input id="lng" readonly placeholder="—" /></div>
+          <div><label>Точность (м)</label><input id="acc" readonly placeholder="—" /></div>
+        </div>
+        <small>Координаты сохраняются в переменную и используются при сохранении комментария.</small>
+      </section>
+
+      <section class="panel">
+        <h2>2) Комментарий</h2>
+        <label>Текст</label>
+        <textarea id="comment" placeholder="Введите комментарий..."></textarea>
+        <div class="row" style="margin-top:10px">
+          <button class="primary" id="saveLsBtn">Сохранить в LocalStorage</button>
+          <button class="primary" id="saveDbBtn">Сохранить в IndexedDB</button>
+        </div>
+        <small>Если геолокация не определена — сохранение запрещено.</small>
+      </section>
+    </div>
+
+    <div class="grid2" style="margin-top:12px">
+      <section class="panel">
+        <h2>LocalStorage</h2>
+        <div class="row">
+          <button class="danger" id="clearLsBtn">Очистить LocalStorage</button>
+        </div>
+        <div id="lsList" class="list" style="margin-top:10px"></div>
+      </section>
+
+      <section class="panel">
+        <h2>IndexedDB</h2>
+        <div class="row">
+          <button class="danger" id="clearDbBtn">Очистить IndexedDB</button>
+        </div>
+        <div id="dbList" class="list" style="margin-top:10px"></div>
+      </section>
+    </div>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

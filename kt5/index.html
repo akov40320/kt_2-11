@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ5 — Аудио/Видео, Canvas, изображения</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №5 — Работа с аудио, видео, изображениями</h1>
+
+    <section class="panel">
+      <h2>1) Аудио и Видео (HTML5 API + пользовательские контролы)</h2>
+      <div class="media">
+        <div class="panel">
+          <label>Выберите аудио</label>
+          <input type="file" id="audioFile" accept="audio/*">
+          <audio id="audio" preload="metadata"></audio>
+
+          <div class="controls" style="margin-top:10px">
+            <button id="aPlay" class="primary">Play</button>
+            <button id="aPause">Pause</button>
+            <label>Громкость</label>
+            <input id="aVol" type="range" min="0" max="1" step="0.01" value="0.8">
+            <span class="pill" id="aTime">0:00 / 0:00</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <label>Выберите видео</label>
+          <input type="file" id="videoFile" accept="video/*">
+          <video id="video" preload="metadata" style="width:100%;max-height:260px;background:#000;border-radius:12px"></video>
+
+          <div class="controls" style="margin-top:10px">
+            <button id="vPlay" class="primary">Play</button>
+            <button id="vPause">Pause</button>
+            <label>Громкость</label>
+            <input id="vVol" type="range" min="0" max="1" step="0.01" value="0.8">
+            <span class="pill" id="vTime">0:00 / 0:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>2) Canvas: рисование + анимация</h2>
+      <div class="row">
+        <button class="primary" id="drawModeBtn">Режим: рисование</button>
+        <button id="animModeBtn">Режим: анимация</button>
+        <button class="danger" id="clearCanvasBtn">Очистить</button>
+        <label>Размер кисти</label>
+        <input id="brush" type="range" min="1" max="30" value="6">
+      </div>
+      <p><small>Анимация сделана через <code>requestAnimationFrame()</code>, объект можно ускорять/замедлять.</small></p>
+      <canvas id="canvas" width="900" height="360"></canvas>
+
+      <div class="row" style="margin-top:10px">
+        <label>Скорость X</label><input id="vx" type="range" min="-12" max="12" value="6">
+        <label>Скорость Y</label><input id="vy" type="range" min="-12" max="12" value="3">
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>3) Изображения: загрузка + обработка Canvas + сохранение</h2>
+
+      <div class="row">
+        <div style="min-width:260px">
+          <label>Загрузить изображение</label>
+          <input type="file" id="imgFile" accept="image/*">
+        </div>
+
+        <div style="min-width:220px">
+          <label>Фильтр</label>
+          <select id="filter">
+            <option value="none">Нет</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="sepia">Sepia</option>
+            <option value="invert">Invert</option>
+          </select>
+        </div>
+
+        <div style="min-width:220px">
+          <label>Яркость</label>
+          <input id="brightness" type="range" min="0" max="2" step="0.01" value="1">
+        </div>
+
+        <div style="min-width:220px">
+          <label>Ширина (px)</label>
+          <input id="resizeW" type="number" min="50" value="600">
+        </div>
+
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="applyBtn">Применить</button>
+          <button id="cropBtn">Обрезать по центру (квадрат)</button>
+          <button class="primary" id="downloadBtn">Скачать результат</button>
+        </div>
+      </div>
+
+      <div class="preview" style="margin-top:10px">
+        <div class="panel">
+          <h2>Оригинал</h2>
+          <img id="origImg" alt="" style="max-width:100%;border-radius:12px;display:none">
+          <p class="muted" id="origHint">Пока ничего не загружено.</p>
+        </div>
+        <div class="panel">
+          <h2>Результат (Canvas)</h2>
+          <canvas id="imgCanvas" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

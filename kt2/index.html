@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ2 — WebStorage + таблица</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №2 — WebStorage с использованием HTML-таблицы</h1>
+
+    <div class="panel">
+      <div class="row">
+        <div>
+          <label>Текущее хранилище</label>
+          <select id="storageSelect">
+            <option value="local">localStorage</option>
+            <option value="session">sessionStorage</option>
+          </select>
+          <small>Переключение вызывает <code>getStorage()</code> → <code>updateTable()</code></small>
+        </div>
+
+        <div style="flex:1;min-width:220px">
+          <label>Ключ</label>
+          <input id="keyInput" placeholder="например: username" />
+        </div>
+
+        <div style="flex:2;min-width:260px">
+          <label>Значение</label>
+          <input id="valueInput" placeholder="например: Yakiv" />
+        </div>
+
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="saveBtn">Сохранить</button>
+          <button class="danger" id="clearBtn">Очистить хранилище</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:12px">
+      <h2>Данные</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:28%">Ключ</th>
+            <th>Значение</th>
+            <th style="width:90px">Удалить</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <small>Удаление: в колонке "Удалить" — <code>span</code> с текстом <b>X</b>, onclick → <code>deleteItem(key)</code>.</small>
+    </div>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

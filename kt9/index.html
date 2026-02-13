@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ9 — Управление устройствами</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №9 — Управление устройствами</h1>
+
+    <section class="panel">
+      <h2>1) FileReader API (загрузка файлов)</h2>
+      <div class="row">
+        <input id="fileInput" type="file" multiple accept="image/*,text/*" />
+        <button class="danger" id="clearBtn">Очистить</button>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>2) Drag & Drop файлов</h2>
+      <div class="drop" id="drop">
+        Перетащите файлы сюда
+        <div class="muted"><small>Поддержка: изображения и текстовые файлы.</small></div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>3) Устройства: Геолокация + Камера</h2>
+      <div class="grid2">
+        <div class="panel">
+          <div class="row">
+            <button class="primary" id="geoBtn">Получить геолокацию</button>
+            <span class="pill" id="geoStatus">—</span>
+          </div>
+          <div class="row" style="margin-top:10px">
+            <div><label>Широта</label><input id="lat" readonly></div>
+            <div><label>Долгота</label><input id="lng" readonly></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="row">
+            <button class="primary" id="camStart">Включить камеру</button>
+            <button id="camStop">Выключить</button>
+            <button class="primary" id="snap">Сделать фото</button>
+          </div>
+          <div class="videoBox" style="margin-top:10px">
+            <video id="video" autoplay playsinline style="width:100%;background:#000;border-radius:12px;max-height:240px"></video>
+            <canvas id="photo" width="400" height="240"></canvas>
+          </div>
+        </div>
+      </div>
+      <small>Есть обработка ошибок: запрет доступа, отсутствие API, etc.</small>
+    </section>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

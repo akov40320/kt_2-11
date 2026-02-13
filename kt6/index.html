@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ6 — Fetch, WebSocket, SSE</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №6 — AJAX/Fetch API, WebSockets, Server-Sent Events</h1>
+
+    <section class="panel">
+      <h2>1–2) Fake API + Fetch</h2>
+      <div class="row">
+        <div>
+          <label>Эндпоинт</label>
+          <select id="endpoint">
+            <option value="users">users</option>
+            <option value="posts">posts</option>
+            <option value="comments">comments</option>
+            <option value="todos">todos</option>
+          </select>
+        </div>
+        <div>
+          <label>Лимит</label>
+          <input id="limit" type="number" min="1" max="50" value="10">
+        </div>
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="loadBtn">Загрузить</button>
+        </div>
+      </div>
+      <div id="fetchError" class="bad" style="margin-top:8px"></div>
+      <div id="cards" class="cards" style="margin-top:10px"></div>
+      <small>Источник: JSONPlaceholder. Есть обработка ошибок/недоступности.</small>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>3) WebSocket чат (нужен локальный сервер)</h2>
+      <div class="row">
+        <div style="flex:1;min-width:260px">
+          <label>WebSocket URL</label>
+          <input id="wsUrl" value="ws://localhost:3000/ws" />
+        </div>
+        <div>
+          <label>Имя</label>
+          <input id="wsName" value="User" />
+        </div>
+        <div class="status">
+          <span class="dot" id="wsDot"></span>
+          <span class="pill" id="wsStatus">disconnected</span>
+        </div>
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="wsConnect">Connect</button>
+          <button id="wsDisconnect">Disconnect</button>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <div style="flex:1;min-width:260px">
+          <label>Сообщение</label>
+          <input id="wsMsg" placeholder="Введите сообщение..." />
+        </div>
+        <button class="primary" id="wsSend">Отправить</button>
+      </div>
+
+      <div class="log" id="wsLog" style="margin-top:10px"></div>
+      <small>Если сервер недоступен — будет показана ошибка.</small>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>4) Server-Sent Events (SSE) (нужен локальный сервер)</h2>
+      <div class="row">
+        <div style="flex:1;min-width:260px">
+          <label>SSE URL</label>
+          <input id="sseUrl" value="http://localhost:3000/events" />
+        </div>
+        <div class="status">
+          <span class="dot" id="sseDot"></span>
+          <span class="pill" id="sseStatus">disconnected</span>
+        </div>
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="sseConnect">Connect</button>
+          <button id="sseDisconnect">Disconnect</button>
+        </div>
+      </div>
+
+      <div class="log" id="sseLog" style="margin-top:10px"></div>
+      <small>SSE получает обновления в реальном времени (эмуляция новых постов).</small>
+    </section>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

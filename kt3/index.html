@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ3 — IndexedDB CRUD</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №3 — IndexedDB CRUD</h1>
+
+    <div class="panel">
+      <div class="row">
+        <div style="min-width:220px">
+          <label>Ключ</label>
+          <input id="keyInput" placeholder="например: item-1" />
+        </div>
+        <div style="flex:1;min-width:280px">
+          <label>Значение</label>
+          <input id="valueInput" placeholder="например: Привет" />
+        </div>
+        <div class="row" style="margin-left:auto">
+          <button class="primary" id="saveBtn">Добавить / перезаписать</button>
+          <button class="danger" id="clearBtn">Очистить таблицу</button>
+        </div>
+      </div>
+      <small>Сохранение/удаление сопровождается <code>alert</code>.</small>
+    </div>
+
+    <div class="panel" style="margin-top:12px">
+      <h2>Записи из IndexedDB</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%">Ключ</th>
+            <th>Значение (редактируемое)</th>
+            <th style="width:120px">Изменить</th>
+            <th style="width:120px">Удалить</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

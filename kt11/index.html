@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ11 — History, Canvas, Worker, Notifications</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №11 — Web Workers, Notifications API</h1>
+
+    <section class="panel">
+      <h2>1) История браузера</h2>
+      <div class="row">
+        <button id="goA" class="primary">Перейти на "страницу" A</button>
+        <button id="goB" class="primary">Перейти на "страницу" B</button>
+        <button id="backBtn">Назад</button>
+        <button id="fwdBtn">Вперёд</button>
+        <span class="pill" id="routePill">/</span>
+      </div>
+      <small>Переходы создают записи в History. Кнопки используют <code>history.back()</code>/<code>history.forward()</code>.</small>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>2) Canvas: интерактив + анимация</h2>
+      <div class="row">
+        <button class="primary" id="toggleAnim">Старт/стоп анимации</button>
+        <button id="clear">Очистить</button>
+      </div>
+      <p><small>Клик по холсту добавляет точки, анимация двигает шар (requestAnimationFrame).</small></p>
+      <canvas id="cv" width="900" height="320"></canvas>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>3) Web Worker: тяжёлые вычисления в фоне</h2>
+      <div class="row">
+        <div style="min-width:240px">
+          <label>Посчитать количество простых чисел до N</label>
+          <input id="n" type="number" min="10000" value="200000" />
+        </div>
+        <button class="primary" id="start">Запустить</button>
+        <button id="stop">Остановить</button>
+        <button class="primary" id="notify">Запросить уведомления</button>
+        <span class="pill" id="workerStatus">idle</span>
+      </div>
+      <div class="log" id="log" style="margin-top:10px"></div>
+      <small>При завершении — опционально отправляет Notification (если разрешено).</small>
+    </section>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

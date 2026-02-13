@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КТ8 — Канбан Drag & Drop</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>КТ №8 — Органайзер задач (Drag & Drop)</h1>
+
+    <section class="panel">
+      <div class="row">
+        <div style="flex:1;min-width:260px">
+          <label>Новая задача</label>
+          <input id="taskText" placeholder="Например: сделать КТ8" />
+        </div>
+        <button class="primary" id="addBtn">Добавить</button>
+        <button class="danger" id="resetBtn">Сбросить всё</button>
+      </div>
+      <small>Состояние сохраняется в localStorage, после перезагрузки остаётся на месте.</small>
+    </section>
+
+    <section class="board" style="margin-top:12px">
+      <div class="panel col">
+        <div class="colHeader">
+          <h2>To Do</h2><span class="pill" id="cTodo">0</span>
+        </div>
+        <div class="dropzone" data-col="todo"></div>
+      </div>
+
+      <div class="panel col">
+        <div class="colHeader">
+          <h2>In Progress</h2><span class="pill" id="cProg">0</span>
+        </div>
+        <div class="dropzone" data-col="progress"></div>
+      </div>
+
+      <div class="panel col">
+        <div class="colHeader">
+          <h2>Done</h2><span class="pill" id="cDone">0</span>
+        </div>
+        <div class="dropzone" data-col="done"></div>
+      </div>
+    </section>
+
+    <p style="margin-top:12px"><a href="../">← Назад к списку</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
